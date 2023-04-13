@@ -8,6 +8,7 @@ $(document).ready(function() {
       }
       return false;
   });
+
   $(document).on('click', '#cancel_update_image', function(e) {
       e.preventDefault();
       $("#update_image").show();

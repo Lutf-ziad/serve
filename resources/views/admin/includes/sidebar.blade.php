@@ -31,7 +31,7 @@
                </a>
                <ul class="nav nav-treeview">
                   <li class="nav-item">
-                     <a href=" " class="nav-link {{ (request()->is('admin/adminpanelsetting*')) ?'active':'' }}">
+                     <a href="{{ route('admin.adminPanelSetting.index') }}" class="nav-link {{ (request()->is('admin/adminpanelsetting*')) ?'active':'' }}">
                         <p>الضبط العام</p>
                      </a>
                   </li>

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -23,10 +26,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('layouts.admin');
     }
     public function getlogin ()
     {
         return view('admin.dashboard');
     }
+    function logout()
+    {
+     auth()->logout();
+    return view('auth.login');
+    }
+
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\admin_panel_settings;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Models\User;
@@ -18,15 +19,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+
+
 
 Auth::routes();
 Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware' => 'auth'], function () {
-      Route::get('home', [HomeController::class, 'getlogin'])->name('admin.getlogin');
-    //  Route::get('login', [HomeController::class, 'login'])->name('admin.login');
-    // Route::get('/adminpanelsetting/edit', [Admin_panel_settingsController::class, 'edit'])->name('admin.adminPanelSetting.edit');
-    // Route::post('/adminpanelsetting/update', [Admin_panel_settingsController::class, 'update'])->name('admin.adminPanelSetting.update');
-    /*   ═══════ ೋღ  start treasuries  ღೋ ═══════                */;
+  Route::get('home', [HomeController::class, 'getlogin'])->name('admin.getlogin');
+  Route::get('logout', [HomeController::class, 'logout'])->name('admin.logout');
+  Route::get('adminPanaleseting', [admin_panel_settings::class, 'index'])->name('admin.adminPanelSetting.index');
+  Route::get('adminPanalesetingedite', [admin_panel_settings::class, 'edite'])->name('admin.adminPanelSetting.edit');
+  Route::post('adminPanalesetingupdate', [admin_panel_settings::class, 'update'])->name('admin.adminPanelSetting.update');
 });
